@@ -4,7 +4,7 @@ defmodule YAMFhash.MixProject do
   def project do
     [
       app: :yamfhash,
-      version: "0.1.0",
+      version: "1.0.0",
       name: "YAMFhash",
       source_url: "https://github.com/mwmiller/yamfhash",
       build_embedded: Mix.env() == :prod,
