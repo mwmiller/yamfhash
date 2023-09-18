@@ -4,7 +4,7 @@ defmodule YAMFhash.MixProject do
   def project do
     [
       app: :yamfhash,
-      version: "1.0.0",
+      version: "1.0.1",
       name: "YAMFhash",
       source_url: "https://github.com/mwmiller/yamfhash",
       build_embedded: Mix.env() == :prod,
@@ -23,8 +23,6 @@ defmodule YAMFhash.MixProject do
 
   defp deps do
     [
-      {:blake2, ">= 1.0.0"},
-      {:equivalex, "~> 1.0"},
       {:stlv, ">= 0.0.0"},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
     ]

@@ -15,7 +15,7 @@ defmodule YAMFhash do
   # We only know about the one format today
   def create(_, _), do: :error
 
-  defp hash_by_id(data, 0), do: Blake2.hash2b(data, 64)
+  defp hash_by_id(data, 0), do: :crypto.hash(:blake2b, data)
 
   @doc """
   Verify hash by format id.
@@ -28,9 +28,9 @@ defmodule YAMFhash do
   def verify(yamfhash, data) do
     case Stlv.decode(yamfhash) do
       {0, hash, rest} ->
-        case Equivalex.equal?(hash, hash_by_id(data, 0)) do
+        case :crypto.hash_equals(hash, hash_by_id(data, 0)) do
           true -> rest
-          false -> :error
+          _ -> :error
         end
 
       _ ->
